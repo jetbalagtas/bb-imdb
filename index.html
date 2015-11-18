@@ -6,57 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css" media="screen" title="no title" charset="utf-8">
-    <script type="html/template" id="movieTmpl">
-
-        <header >
-          <img src="https://avatars3.githubusercontent.com/u/5748263?v=3&s=460" alt="" />
-
-          <div class="">
-            <a href="#/movies/"><%= title %></a>
-          </div>
-          <a href="#"><%= yrReleased %></a>
-        </header>
-        <div class="pContain">
-            <img src="<%= movie-covers %>" alt="" />
-            <div class="play">
-              <span>U+25B7;</span>
-            </div>
-        </div>
-
-
-    </script>
   </head>
   <body>
-    <nav>
-        <div class="topNav">
-          <a href="#/" class="brand">Movies DB</a>
-          <div class="menuItems">
-            <a href="#/likes">My Likes</a>
-            <a href="#/photos">Movies</a>
-          </div>
-        </div>
-      </nav>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-8">
-            <div id="movies">
-              <form class="userform">
-                <input type="text" name="cover" value="movie poster url">
-                <input type="text" name="title" value="movie title">
-                <input type="text" name="releaseyear" value="year released">
-                <input type="text" name="plot" value="movie plot">
-                <input type="text" name="rating" value="rate this movie">
-                <button type="submit" class="addThisMovie" name="button">Add this Movie</button>
-              </form>
-              <!-- single photo template -->
+    <div class="layoutView">
+      <header>
 
-            </div>
-          </div>
-          <div class="col-md-4">.col-md-4</div>
-        </div>
-      </div>
+      </header>
+      <section class="content">
 
+      </section>
+      <aside>
 
+      </aside>
+    </div>
 
     <script src="bundle.js"></script>
   </body>
