@@ -1,6 +1,8 @@
 // this file contains the shape of our data
 
 var Backbone = require('backbone');
+var $ = require('jquery');
+var _ = require('underscore');
 
 module.exports = Backbone.Model.extend({
   urlRoot: 'http://tiy-fee-rest.herokuapp.com/collections/imdbjetchs2015',

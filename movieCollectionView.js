@@ -3,17 +3,20 @@ var _ = require('underscore');
 var $ = require('jquery');
 Backbone.$ = $;
 var MoviesView = require('./movieModelView');
+var MovieCollection = require('./movieCollection');
+var MovieModelView = require('./movieModelView');
+var MovieModel = require('./movieModel');
 
-module.exports = Backbone.View.Extend({
+
+module.exports = Backbone.View.extend({
 
   el: '#movie-covers',
   events: {
-    'click .showForm': 'doSomething',
+    'click .addThisMovie': 'addMovie',
     // 'submit form': 'submitForm'
   },
 
-  submitForm: function () {
-    $('.userform').on('submit', function(event) {
+  addMovie: function (event) {
     event.preventDefault();
     var newMovie = {
       cover: ('input[name="cover"]').val(),
@@ -26,15 +29,12 @@ module.exports = Backbone.View.Extend({
     newModel.save();
     this.collection.add(newModel);
     this.addOne(newModel);
-  });
-  },
 
-  doSomething: function () {
-
-  },
-
-  initialize: function () {
-
+    $('input[name="cover"]').val("");
+    $('input[name="title"]').val("");
+    $('input[name="releaseyear"]').val("");
+    $('input[name="plot"]').val("");
+    $('input[name="rating"]').val("");
   },
 
   addOne: function (movieModel) {
@@ -44,6 +44,10 @@ module.exports = Backbone.View.Extend({
 
   addAll: function () {
     _.each(this.collection.models, this.addOne, this);
+  },
+
+  initialize: function () {
+
   }
 
 });

@@ -1,4 +1,4 @@
-var $ = require(jquery);
+var $ = require('jquery');
 var MovieCollection = require('./movieCollection');
 var MovieCollectionView = require('./movieCollectionView');
 
@@ -8,6 +8,6 @@ $(function () {
   movies.fetch().then(function(data) {
     console.log("these are the movies: ", movies);
     new MovieCollectionView({collection: movies});
-    
+
   });
 });

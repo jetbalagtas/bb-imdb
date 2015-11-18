@@ -1,5 +1,5 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-var $ = require(jquery);
+var $ = require('jquery');
 var MovieCollection = require('./movieCollection');
 var MovieCollectionView = require('./movieCollectionView');
 
@@ -9,55 +9,56 @@ $(function () {
   movies.fetch().then(function(data) {
     console.log("these are the movies: ", movies);
     new MovieCollectionView({collection: movies});
-    
+
   });
 });
 
-},{"./movieCollection":2,"./movieCollectionView":3}],2:[function(require,module,exports){
+},{"./movieCollection":2,"./movieCollectionView":3,"jquery":7}],2:[function(require,module,exports){
 var Backbone = require('backbone');
 var _ = require('underscore');
+var MovieModel = require('./movieModel');
 
 module.exports = Backbone.Collection.extend({
+  url: 'http://tiy-fee-rest.herokuapp.com/collections/imdbjetchs2015',
+  model: MovieModel
+  });
 
-  url: function () {
+  // config: function () {
+  //
+  // },
+  //
+  // buildImgUrl: function (obj) {
+  //
+  // },
+  //
+  // parse: function (data) {
+  //
+  // },
+  //
+  // initialize: function () {
+  //
+  // }
 
-  },
-
-  config: function () {
-
-  },
-
-  buildImgUrl: function (obj) {
-
-  },
-
-  parse: function (data) {
-
-  },
-
-  initialize: function () {
-
-  }
-
-});
-
-},{"backbone":6,"underscore":8}],3:[function(require,module,exports){
+},{"./movieModel":4,"backbone":6,"underscore":8}],3:[function(require,module,exports){
 var Backbone = require('backbone');
 var _ = require('underscore');
 var $ = require('jquery');
 Backbone.$ = $;
 var MoviesView = require('./movieModelView');
+var MovieCollection = require('./movieCollection');
+var MovieModelView = require('./movieModelView');
+var MovieModel = require('./movieModel');
 
-module.exports = Backbone.View.Extend({
+
+module.exports = Backbone.View.extend({
 
   el: '#movie-covers',
   events: {
-    'click .showForm': 'doSomething',
+    'click .addThisMovie': 'addMovie',
     // 'submit form': 'submitForm'
   },
 
-  submitForm: function () {
-    $('.userform').on('submit', function(event) {
+  addMovie: function (event) {
     event.preventDefault();
     var newMovie = {
       cover: ('input[name="cover"]').val(),
@@ -70,15 +71,12 @@ module.exports = Backbone.View.Extend({
     newModel.save();
     this.collection.add(newModel);
     this.addOne(newModel);
-  });
-  },
 
-  doSomething: function () {
-
-  },
-
-  initialize: function () {
-
+    $('input[name="cover"]').val("");
+    $('input[name="title"]').val("");
+    $('input[name="releaseyear"]').val("");
+    $('input[name="plot"]').val("");
+    $('input[name="rating"]').val("");
   },
 
   addOne: function (movieModel) {
@@ -88,14 +86,20 @@ module.exports = Backbone.View.Extend({
 
   addAll: function () {
     _.each(this.collection.models, this.addOne, this);
+  },
+
+  initialize: function () {
+
   }
 
 });
 
-},{"./movieModelView":5,"backbone":6,"jquery":7,"underscore":8}],4:[function(require,module,exports){
+},{"./movieCollection":2,"./movieModel":4,"./movieModelView":5,"backbone":6,"jquery":7,"underscore":8}],4:[function(require,module,exports){
 // this file contains the shape of our data
 
 var Backbone = require('backbone');
+var $ = require('jquery');
+var _ = require('underscore');
 
 module.exports = Backbone.Model.extend({
   urlRoot: 'http://tiy-fee-rest.herokuapp.com/collections/imdbjetchs2015',
@@ -112,7 +116,7 @@ module.exports = Backbone.Model.extend({
   }
 });
 
-},{"backbone":6}],5:[function(require,module,exports){
+},{"backbone":6,"jquery":7,"underscore":8}],5:[function(require,module,exports){
 // this file contains markup for the template
 
 var Backbone = require('backbone');
