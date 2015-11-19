@@ -192,6 +192,18 @@ module.exports = Backbone.View.extend({
   model: null, // just a placeholder
   initialize: function () {},
   template: _.template(tmpl.movie),
+
+  events: {
+    'click .deleteMovie': 'deleteMovie',
+    'click .editMovie' : 'editMovie',
+  },
+
+  deleteMovie: function(event) {
+    event.preventDefault();
+    this.model.destroy();
+    this.$el.remove();
+  },
+
   render: function () {
     var markup = this.template(this.model.toJSON());
     this.$el.html(markup);
@@ -12874,9 +12886,9 @@ module.exports = {
       "<h5><%= rating %></h5>",
       "<p><%= plot %></p>",
       "<p>",
-      "<button class='<%= \"btn btn-primary\" %>' role='<%= \"button\"%>'> <%= \"Edit\" %>",
+      "<button class='<%= \"btn btn-primary editMovie\" %>' role='<%= \"button\"%>' type='<%= \"submit\"%>' name='<%= \"edit\"%>'> <%= \"Edit\" %>",
       "</button>  ",
-      "<button class='<%= \"btn btn-danger\" %>' role='<%= \"button\"%>'> <%= \"Delete\" %>",
+      "<button class='<%= \"btn btn-danger deleteMovie\" %>' role='<%= \"button\"%>' type='<%= \"submit\"%>' name='<%= \"delete\"%>'> <%= \"Delete\" %>",
       "</button>",
       "</p>",
       "</div>",

@@ -10,6 +10,18 @@ module.exports = Backbone.View.extend({
   model: null, // just a placeholder
   initialize: function () {},
   template: _.template(tmpl.movie),
+
+  events: {
+    'click .deleteMovie': 'deleteMovie',
+    'click .editMovie' : 'editMovie',
+  },
+
+  deleteMovie: function(event) {
+    event.preventDefault();
+    this.model.destroy();
+    this.$el.remove();
+  },
+
   render: function () {
     var markup = this.template(this.model.toJSON());
     this.$el.html(markup);
