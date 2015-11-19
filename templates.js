@@ -1,35 +1,53 @@
 module.exports = {
   movie: [
-
+      // "<div class='<%= \"row\" %>'>",
+      // "<div class='<%= \"col-sm-6 col-md-4\" %>'>",
+      "<div class='<%= \"thumbnail\" %>'>",
       "<img src='<%= cover %>' >",
+      "<div class='<%= \"caption\" %>'>",
       "<h3><%= title %></h3>",
       "<h4><%= releasedate %></h4>",
+      "<h5><%= rating %></h5>",
       "<p><%= plot %></p>",
+      "<p>",
+      "<button class='<%= \"btn btn-primary\" %>' role='<%= \"button\"%>'> <%= \"Edit\" %>",
+      "</button>  ",
+      "<button class='<%= \"btn btn-danger\" %>' role='<%= \"button\"%>'> <%= \"Delete\" %>",
+      "</button>",
+      "</p>",
+      "</div>",
+      "</div>",
+      // "</div>",
+      // "</div>",
 
   ].join(""),
   form: [
     "<form>",
-      "<input type='text' placeholder='Title' name='title'>",
-      "<input type='text' placeholder='releasedate' name='releasedate'>",
-      "<input type='text' placeholder='cover photo' name='coverPhoto'>",
-      "<textarea name='plot'></textarea>",
-      "<input type='submit' value='add book'>",
+      "<p><input type='text' class='form-control' placeholder='Title' name='title'></p>",
+      "<p><input type='text' class='form-control' placeholder='Release Date' name='releasedate'></p>",
+      "<p><input type='text' class='form-control' placeholder='Image URL' name='coverPhoto'></p>",
+      "<p><input type='text' class='form-control' placeholder='Rating' name='rating'></p>",
+      "<p><textarea class='form-control' rows='3' name='plot' placeholder='Summary'></textarea></p>",
+      "<p><input type='submit' class='btn btn-warning' value='add movie'></p>",
     "</form>"
   ].join(""),
   header: [
-    "<h2>HEADER</h2>",
-    "<nav>",
-    "<ul>",
-    "<li>home</li>",
-    "</ul>",
-    "</nav>"
+    "<h2>Awesome Movies</h2>",
+    // "<nav>",
+    // "<ul>",
+    // "<li>home</li>",
+    // "</ul>",
+    // "</nav>"
   ].join(""),
   footer: [
-    "<h2>Footer</h2>",
-    "<nav>",
-    "<ul>",
-    "<li>home</li>",
-    "</ul>",
-    "</nav>"
+    "<div class='<%= \"footer-links\" %>'>",
+    "<a href='<%= \"#\" %>'><%= \"Home\" %></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;",
+    "<a href='<%= \"#\" %>'><%= \"Add a Movie\" %></a>",
+    // "<h2>Footer</h2>",
+    // "<nav>",
+    // "<ul>",
+    // "<li>home</li>",
+    // "</ul>",
+    // "</nav>"
   ].join(""),
 };

@@ -22,6 +22,7 @@ module.exports = Backbone.View.extend({
       title: this.$el.find('input[name="title"]').val(),
       releasedate: this.$el.find('input[name="releasedate"]').val(),
       cover: this.$el.find('input[name="coverPhoto"]').val(),
+      rating: this.$el.find('input[name="rating"]').val(),
       plot: this.$el.find('textarea[name="plot"]').val()
     };
     this.model.set(newMovie);

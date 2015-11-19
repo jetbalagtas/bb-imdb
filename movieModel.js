@@ -2,7 +2,7 @@ var Backbone = require('backbone');
 // this file contains the shape of our data
 
 module.exports = Backbone.Model.extend({
-  urlRoot: 'http://tiy-fee-rest.herokuapp.com/collections/imdbjetchs2015',
+  urlRoot: 'http://tiny-tiny.herokuapp.com/collections/bbjetchs2015',
   idAttribute: '_id',
   defaults: function () {
     // write your if statement here

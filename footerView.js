@@ -11,7 +11,7 @@ module.exports = Backbone.View.extend({
     var markup = this.template({});
     this.$el.html(markup);
     // in order to call .el off of render we need to return this
-    // bookViewInstance.render().el - yields all markup and data from model
+    // movieViewInstance.render().el - yields all markup and data from model
     return this;
   }
 });

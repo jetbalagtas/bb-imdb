@@ -1,6 +1,6 @@
 var $ = require('jquery');
-var layoutView = require('./layoutView');
+var LayoutView = require('./layoutView');
 
 $(function () {
-  new layoutView();
+  new LayoutView();
 });
