@@ -1,3 +1,5 @@
+#### [Visit the live demo here](http://jetbalagtas.github.io/bb-imdb/)
+
 # Backbone Imdb
 
 ## Description
